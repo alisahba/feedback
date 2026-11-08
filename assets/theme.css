@@ -58,6 +58,7 @@ header.top > div { max-width: 1120px; margin: 0 auto; padding: 0 24px; height: 6
 header.top .brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-size: 17px; line-height: 1;
                     font-weight: 650; letter-spacing: -.01em; text-decoration: none; }
 header.top .brand img { width: 28px; height: 28px; }
+header.top .brand .mark { display: block; height: 22px; width: auto; color: var(--text); }
 header.top nav { display: flex; align-items: center; flex-wrap: nowrap; }
 header.top nav a { margin-left: 22px; font-size: 15px; line-height: 1; color: var(--muted); text-decoration: none; }
 header.top nav a:hover, header.top nav a.current { color: var(--text); }
