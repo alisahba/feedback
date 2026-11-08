@@ -30,7 +30,8 @@
     .menu.open { opacity: 1; transform: none; pointer-events: auto; }
     .menu .bar { position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center; height: 64px; padding: 0 20px;
                  background: var(--bg); border-bottom: 1px solid var(--line); }
-    .menu .bar b { font-size: 17px; }
+    .menu .bar b { font-size: 17px; display: flex; align-items: center; gap: 10px; }
+    .menu .bar .mark { height: 22px; width: auto; color: var(--text); }
     .menu .close { width: 34px; height: 34px; border-radius: 9px; border: 1px solid var(--line); background: transparent; color: var(--text);
                    font-size: 20px; line-height: 1; cursor: pointer; }
     .menu .body { padding: 8px 20px 40px; }
@@ -52,9 +53,11 @@
   menu.className = 'menu';
   menu.setAttribute('role', 'dialog');
   menu.setAttribute('aria-label', 'Menu');
+  const mk = document.querySelector('header.top .mark');
+  const markHTML = mk ? mk.outerHTML.replace(/id="fbmark"/, 'id="fbmark-menu"').replace(/url\(#fbmark\)/, 'url(#fbmark-menu)') : '';
   const here = location.pathname.replace(/index\.html$/, '');
   menu.innerHTML = `
-    <div class="bar"><b>Feedback</b><button class="close" type="button" aria-label="Close menu">×</button></div>
+    <div class="bar"><b class="menu-brand">${markHTML}Feedback</b><button class="close" type="button" aria-label="Close menu">×</button></div>
     <div class="body">
       ${SECTIONS.map(([title, links]) => `
         <h3>${title}</h3>
