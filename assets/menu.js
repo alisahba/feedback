@@ -25,10 +25,6 @@
 
   const style = document.createElement('style');
   style.textContent = `
-    .menu-btn { display: none; align-items: center; justify-content: center; width: 34px; height: 34px; margin-left: 10px; padding: 0;
-                border-radius: 9px; border: 1px solid var(--line); background: transparent; color: var(--text); cursor: pointer; }
-    .menu-btn svg { width: 18px; height: 18px; }
-    @media (max-width: 860px) { .menu-btn { display: inline-flex; } }
     .menu { position: fixed; inset: 0; z-index: 50; background: var(--bg); overflow-y: auto; -webkit-overflow-scrolling: touch;
             opacity: 0; transform: translateY(-8px); pointer-events: none; transition: opacity .22s ease, transform .22s ease; }
     .menu.open { opacity: 1; transform: none; pointer-events: auto; }
@@ -69,12 +65,15 @@
     </div>`;
   document.body.append(menu);
 
-  const button = document.createElement('button');
-  button.type = 'button';
-  button.className = 'menu-btn';
-  button.setAttribute('aria-label', 'Open menu');
-  button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
-  nav.append(button);
+  let button = nav.querySelector('.menu-btn');
+  if (!button) {
+    button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'menu-btn';
+    button.setAttribute('aria-label', 'Open menu');
+    button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
+    nav.append(button);
+  }
 
   const open = () => { menu.classList.add('open'); document.documentElement.classList.add('menu-open'); };
   const close = () => { menu.classList.remove('open'); document.documentElement.classList.remove('menu-open'); };
