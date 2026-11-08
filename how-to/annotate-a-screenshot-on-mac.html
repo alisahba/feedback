@@ -28,7 +28,7 @@ img{max-width:100%;height:auto}
 .top{position:sticky;top:0;z-index:10;background:rgba(13,14,16,.8);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px)}
 .top .in{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;height:64px}
 .brand{display:flex;align-items:center;gap:10px;color:var(--text);font-weight:650}.brand:hover{text-decoration:none}
-.top nav a{color:var(--muted);margin-left:22px;font-size:15px}.top nav a:hover{color:var(--text);text-decoration:none}
+.top nav a{color:var(--muted);margin-left:22px;font-size:15px}.top nav a:hover,.top nav a.current{color:var(--text);text-decoration:none}
 .top nav .cta{color:var(--green-ink);background:var(--green);padding:7px 14px;border-radius:9px;font-weight:600}
 main{max-width:760px;margin:0 auto;padding:40px 24px 0}
 .crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
@@ -55,7 +55,7 @@ footer a{color:var(--muted);margin-left:18px}
 <body>
 <header class="top"><div class="in">
 <a class="brand" href="/"><img src="/images/favicon-32.png" alt="" width="28" height="28">Feedback</a>
-<nav aria-label="Main"><a href="/#features">Features</a><a href="/guide.html">Guide</a><a href="/how-to/">How-to</a><a href="/#pricing">Pricing</a><a class="cta" href="https://apps.apple.com/app/id6832037599">Download</a></nav>
+<nav aria-label="Main"><a href="/#features">Features</a><a href="/guide.html">Guide</a><a href="/how-to/" class="current">How-to</a><a href="/#pricing">Pricing</a><a href="/#faq">FAQ</a><a class="cta" href="https://apps.apple.com/app/id6832037599">Download</a></nav>
 </div></header>
 <main>
 <div class="crumbs"><a href="/">Feedback</a> › <a href="/how-to/">How-to</a></div>
@@ -107,6 +107,6 @@ footer a{color:var(--muted);margin-left:18px}
 </main>
 <script src="/assets/lightbox.js" defer></script>
 <script src="/assets/theme.js" defer></script>
-<footer><span>© 2026 Feedback</span><span><a href="/guide.html">Guide</a><a href="/how-to/">How-to</a><a href="mailto:feedback.contact@icloud.com">Contact</a><a href="/#privacy">Privacy</a></span></footer>
+<footer><span>© 2026 Feedback</span><span><a href="/guide.html">Guide</a><a href="/how-to/">How-to</a><a href="/#faq">FAQ</a><a href="mailto:feedback.contact@icloud.com">Contact</a><a href="/#privacy">Privacy</a></span></footer>
 </body>
 </html>

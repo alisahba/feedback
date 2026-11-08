@@ -40,7 +40,7 @@
     --green: #20e261;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
   body {
     margin: 0;
     background: var(--bg);
@@ -52,18 +52,20 @@
   a:hover { text-decoration: underline; }
   .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
-  nav.top { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
-  nav.top .brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 600; }
-  nav.top .brand img { width: 30px; height: 30px; }
-  nav.top .links a { color: var(--muted); margin-left: 22px; font-size: 15px; }
-  nav.top .links a.current { color: var(--text); }
+  .top { position: sticky; top: 0; z-index: 10; background: rgba(13, 14, 16, .78); backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px); }
+  .top .in { max-width: 1120px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; height: 64px; }
+  .brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 650; }
+  .brand:hover { text-decoration: none; }
+  .top nav a { color: var(--muted); margin-left: 22px; font-size: 15px; }
+  .top nav a:hover, .top nav a.current { color: var(--text); text-decoration: none; }
+  .top nav .cta { color: #06130a; background: var(--green); padding: 7px 14px; border-radius: 9px; font-weight: 600; }
 
   .intro { padding: 40px 0 24px; border-bottom: 1px solid var(--line); }
   .intro h1 { font-size: clamp(36px, 6vw, 52px); letter-spacing: -.02em; line-height: 1.05; margin: 0 0 10px; }
   .intro p { color: var(--muted); font-size: 19px; margin: 0; max-width: 680px; }
 
   .layout { display: grid; grid-template-columns: 220px 1fr; gap: 56px; padding-top: 36px; }
-  aside { position: sticky; top: 24px; align-self: start; font-size: 15px; }
+  aside { position: sticky; top: 88px; align-self: start; font-size: 15px; }
   aside a { display: block; color: var(--muted); padding: 5px 0; }
   aside a:hover { color: var(--text); text-decoration: none; }
   aside .group { color: var(--text); font-weight: 600; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; margin: 18px 0 4px; }
@@ -112,24 +114,27 @@
     .howto { grid-template-columns: 1fr; }
     aside { position: static; display: flex; flex-wrap: wrap; gap: 4px 16px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
     aside .group { display: none; }
-    nav.top .links a { margin-left: 14px; }
+    .top nav a:not(.cta) { display: none; }
     td:first-child { white-space: normal; }
   }
 </style>
 </head>
 <body>
+<header class="top">
+  <div class="in">
+    <a class="brand" href="/"><img src="/images/favicon-32.png" alt="" width="28" height="28">Feedback</a>
+    <nav aria-label="Main">
+      <a href="/#features">Features</a>
+      <a href="/guide.html" class="current">Guide</a>
+      <a href="/how-to/">How-to</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/#faq">FAQ</a>
+      <a class="cta" href="https://apps.apple.com/app/id6832037599">Download</a>
+    </nav>
+  </div>
+</header>
 <div class="wrap">
 
-  <nav class="top">
-    <a class="brand" href="./"><img src="images/favicon-32.png" alt="" width="30" height="30">Feedback</a>
-    <div class="links">
-      <a href="./#features">Features</a>
-      <a href="guide.html" class="current">Guide</a>
-      <a href="how-to/">How-to</a>
-      <a href="./#pricing">Pricing</a>
-      <a href="./#support">Support</a>
-    </div>
-  </nav>
 
   <div class="intro">
     <h1>The Feedback guide</h1>
@@ -440,7 +445,7 @@
 
   <footer>
     <span>© 2026 Feedback</span>
-    <span><a href="./">Home</a> · <a href="mailto:feedback.contact@icloud.com">Contact</a> · <a href="./#privacy">Privacy</a></span>
+    <span><a href="/">Home</a> · <a href="/how-to/">How-to</a> · <a href="/#faq">FAQ</a> · <a href="mailto:feedback.contact@icloud.com">Contact</a> · <a href="/#privacy">Privacy</a></span>
   </footer>
 
 </div>
