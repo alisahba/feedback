@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feedback Guide</title>
+<meta name="description" content="Everything Feedback for Mac can do: screenshots, markup, screen recording, GIFs, storyboards, the timeline, reference boards and colors.">
+<link rel="icon" href="images/favicon.png">
+<style>
+  :root {
+    --bg: #0d0e10;
+    --panel: #17181b;
+    --line: #26282c;
+    --text: #f2f3f5;
+    --muted: #9a9ca3;
+    --green: #20e261;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16.5px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--green); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  nav.top { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
+  nav.top .brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 600; }
+  nav.top .brand img { width: 30px; height: 30px; }
+  nav.top .links a { color: var(--muted); margin-left: 22px; font-size: 15px; }
+  nav.top .links a.current { color: var(--text); }
+
+  .intro { padding: 40px 0 24px; border-bottom: 1px solid var(--line); }
+  .intro h1 { font-size: clamp(36px, 6vw, 52px); letter-spacing: -.02em; line-height: 1.05; margin: 0 0 10px; }
+  .intro p { color: var(--muted); font-size: 19px; margin: 0; max-width: 680px; }
+
+  .layout { display: grid; grid-template-columns: 220px 1fr; gap: 56px; padding-top: 36px; }
+  aside { position: sticky; top: 24px; align-self: start; font-size: 15px; }
+  aside a { display: block; color: var(--muted); padding: 5px 0; }
+  aside a:hover { color: var(--text); text-decoration: none; }
+  aside .group { color: var(--text); font-weight: 600; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; margin: 18px 0 4px; }
+  aside .group:first-child { margin-top: 0; }
+
+  article section { padding: 6px 0 40px; border-bottom: 1px solid var(--line); margin-bottom: 36px; }
+  article section:last-child { border-bottom: 0; }
+  .tag { color: var(--green); font-size: 12.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+  h2 { font-size: 30px; letter-spacing: -.015em; margin: 4px 0 10px; }
+  h3 { font-size: 19px; margin: 28px 0 6px; }
+  p { margin: 0 0 12px; }
+  .muted { color: var(--muted); }
+  ul { margin: 0 0 12px; padding-left: 20px; }
+  li { margin: 4px 0; }
+  li::marker { color: var(--muted); }
+  figure { margin: 18px 0 8px; }
+  figure img { width: 100%; display: block; border-radius: 8px; }
+  .pro { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em; color: #07130b; background: var(--green); border-radius: 5px; padding: 1px 6px; margin-left: 6px; vertical-align: 2px; }
+  kbd {
+    font: 600 13px/1 -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--panel); border: 1px solid var(--line); border-bottom-width: 2px;
+    border-radius: 6px; padding: 3px 7px; white-space: nowrap;
+  }
+  .note { background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--green); border-radius: 10px; padding: 14px 16px; margin: 16px 0; color: var(--muted); }
+  .note strong { color: var(--text); }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0 18px; font-size: 15.5px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
+  td:first-child { white-space: nowrap; width: 1%; }
+
+  footer { margin-top: 40px; padding: 30px 0 50px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; gap: 10px; }
+    aside { position: static; display: flex; flex-wrap: wrap; gap: 4px 16px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+    aside .group { display: none; }
+    nav.top .links a { margin-left: 14px; }
+    td:first-child { white-space: normal; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="top">
+    <a class="brand" href="./"><img src="images/icon.png" alt="">Feedback</a>
+    <div class="links">
+      <a href="./#features">Features</a>
+      <a href="guide.html" class="current">Guide</a>
+      <a href="./#pricing">Pricing</a>
+      <a href="./#support">Support</a>
+    </div>
+  </nav>
+
+  <div class="intro">
+    <h1>The Feedback guide</h1>
+    <p>Everything the app does, section by section. Features marked <span class="pro">PRO</span> need Feedback Pro or the free 7-day trial.</p>
+  </div>
+
+  <div class="layout">
+    <aside>
+      <div class="group">Basics</div>
+      <a href="#start">Getting started</a>
+      <a href="#capture">Screenshots</a>
+      <a href="#markup">Marking up</a>
+      <a href="#recording">Screen recording</a>
+      <a href="#gif">Video to GIF</a>
+      <a href="#finder">Finder action</a>
+      <div class="group">Sections</div>
+      <a href="#board">Board</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#reference">Reference</a>
+      <a href="#colors">Colors</a>
+      <div class="group">More</div>
+      <a href="#projects">Projects &amp; tabs</a>
+      <a href="#settings">Settings</a>
+      <a href="#pro">Free and Pro</a>
+      <a href="#shortcuts">Keyboard shortcuts</a>
+    </aside>
+
+    <article>
+
+      <section id="start">
+        <div class="tag">Basics</div>
+        <h2>Getting started</h2>
+        <p>Feedback is one window with five sections, switched from the control at the top: <strong>Review</strong>, <strong>Board</strong>, <strong>Timeline</strong>, <strong>Reference</strong> and <strong>Colors</strong>. You can also jump between them with <kbd>⌥⌘1</kbd> to <kbd>⌥⌘5</kbd>.</p>
+        <p>The app also lives in your menu bar, so its shortcuts keep working even with no window open. From the menu bar icon you can capture a screenshot, record the screen, pick a color, or open the app.</p>
+        <h3>The first time you capture</h3>
+        <p>macOS asks for permission to record the screen. Turn on Feedback in <strong>System Settings › Privacy &amp; Security › Screen &amp; System Audio Recording</strong>, then reopen the app. Screenshots and recordings both need this.</p>
+        <h3>Opening your own files</h3>
+        <p>Drag images or videos onto the window, or use <kbd>⌘O</kbd>. Each file opens in its own tab.</p>
+      </section>
+
+      <section id="capture">
+        <div class="tag">Basics</div>
+        <h2>Screenshots</h2>
+        <p>Press <kbd>⌥⇧S</kbd> from any app (or click the camera button in the toolbar) and drag over the area you want.</p>
+        <p>A small preview appears in the corner. Click it to open the shot, or drag it straight into another app. Hovering keeps it on screen.</p>
+        <p>In <strong>Settings › Capture</strong> you choose what happens next:</p>
+        <ul>
+          <li><strong>Open in Editor</strong>: the shot opens in Review, ready to mark up.</li>
+          <li><strong>Save and Copy Right Away</strong>: it's saved and on your clipboard immediately, without opening the app.</li>
+          <li><strong>Copy Right Away</strong>: every capture goes to the clipboard, whichever option you pick.</li>
+          <li><strong>Preview Stays For</strong>: how long the corner preview shows, from 2 seconds to until clicked.</li>
+        </ul>
+        <p>Save with <kbd>Return</kbd> or <kbd>⌘E</kbd>. Screenshots are saved as PNG to your Desktop, Downloads, or next to the original file. With <strong>Copy to clipboard after export</strong> on, every saved file is also copied, so it pastes as an image in Figma and as a file in Slack or Mail.</p>
+      </section>
+
+      <section id="markup">
+        <div class="tag">Basics</div>
+        <h2>Marking up</h2>
+        <figure><img src="images/shot-1.jpg" alt="A screenshot with a circle, an arrow and a note"></figure>
+        <p>The tools sit in the bar below the image. Each has a one-letter shortcut:</p>
+        <table>
+          <tr><th>Key</th><th>Tool</th></tr>
+          <tr><td><kbd>V</kbd></td><td>Select &amp; Crop: move, resize or delete marks, and crop the image.</td></tr>
+          <tr><td><kbd>P</kbd></td><td>Pen: draw freehand.</td></tr>
+          <tr><td><kbd>A</kbd></td><td>Arrow <span class="pro">PRO</span></td></tr>
+          <tr><td><kbd>R</kbd></td><td>Rectangle <span class="pro">PRO</span></td></tr>
+          <tr><td><kbd>C</kbd></td><td>Circle <span class="pro">PRO</span></td></tr>
+          <tr><td><kbd>T</kbd></td><td>Text, plain or on a background <span class="pro">PRO</span></td></tr>
+        </table>
+        <p>Choose from eight colors and three line sizes. The free version draws in red at the middle size; Pro unlocks every color and size.</p>
+        <p>Select a mark and press <kbd>Delete</kbd> to remove it, or <kbd>Esc</kbd> to deselect. <kbd>⌘Z</kbd> undoes.</p>
+        <h3>Cropping</h3>
+        <p>Drag the edges of the image for a free crop, or pick a fixed shape: Original, 1:1, 4:5, 16:9 or 9:16 (<kbd>⌘1</kbd> to <kbd>⌘6</kbd>). Fixed shapes are <span class="pro">PRO</span>.</p>
+      </section>
+
+      <section id="recording">
+        <div class="tag">Basics</div>
+        <h2>Screen recording</h2>
+        <p>Press <kbd>⌥⇧D</kbd> (or the record button) and choose the area. Press the same shortcut again to stop. The recording opens in Review, where you can trim it, mark it up and export it as a GIF or a video.</p>
+      </section>
+
+      <section id="gif">
+        <div class="tag">Basics</div>
+        <h2>Video to GIF</h2>
+        <figure><img src="images/shot-2.jpg" alt="A video in Review with the export settings"></figure>
+        <p>Open any video, or record one, and it plays in Review with a trimmer underneath.</p>
+        <h3>Playing and trimming</h3>
+        <ul>
+          <li><kbd>Space</kbd> plays and pauses. <kbd>←</kbd> <kbd>→</kbd> step one frame, with <kbd>⇧</kbd> for ten.</li>
+          <li>Drag the trimmer's yellow edges, or press <kbd>I</kbd> and <kbd>O</kbd> to set the start and end at the playhead. <span class="pro">PRO</span></li>
+          <li><kbd>S</kbd> takes a snapshot of the current frame into a new tab.</li>
+        </ul>
+        <h3>Export settings</h3>
+        <p>The panel on the right sets up the file:</p>
+        <ul>
+          <li><strong>Format</strong>: GIF, MP4 (H.264, small files) or MOV (ProRes, no visible compression).</li>
+          <li><strong>Quality</strong>: Small, Balanced or High.</li>
+          <li><strong>Size</strong>: the longest side in pixels, or full size.</li>
+          <li><strong>Frame Rate</strong> and <strong>Speed</strong>.</li>
+        </ul>
+        <p>The estimated file size updates as you change things, so you can hit a size limit before exporting. <kbd>Q</kbd> previews the export quality in the player.</p>
+        <p>MP4 and MOV keep the original sound, matched to your trim and speed. GIFs have no sound.</p>
+        <div class="note"><strong>Free version:</strong> GIFs and videos get a small "Made with Feedback" mark in the corner. Screenshots never do. Pro removes it.</div>
+      </section>
+
+      <section id="finder">
+        <div class="tag">Basics</div>
+        <h2>Finder action</h2>
+        <p>Right-click one or more videos in Finder and choose <strong>Quick Actions › Convert to GIF</strong>. The GIF is made in the background and saved next to the video, using your quality and size settings from the app. You don't need to open Feedback.</p>
+      </section>
+
+      <section id="board">
+        <div class="tag">Section · Pro</div>
+        <h2>Board <span class="pro">PRO</span></h2>
+        <figure><img src="images/shot-3.jpg" alt="Board with six storyboard frames"></figure>
+        <p>Board shows every open tab as a numbered frame, so your screenshots become a storyboard.</p>
+        <ul>
+          <li>Drag frames to reorder them. The numbers follow.</li>
+          <li>Hide frames you don't need with <kbd>H</kbd>, without closing them.</li>
+          <li>Set the frame shape (Original, 16:9, 1:1, 4:5 or 9:16), the size, names on or off, a dark background, rounded corners and play icons on videos.</li>
+          <li><strong>Copy</strong> puts the selected frames on the clipboard. <strong>Timeline</strong> sends them to the Timeline in order.</li>
+        </ul>
+        <h3>Exporting the board</h3>
+        <p><strong>Export</strong> opens a preview where you choose a light, dark or transparent look, a title and subtitle, the number of columns, spacing and frame size. Save it as PNG, JPEG, HEIC or PDF, or copy it.</p>
+      </section>
+
+      <section id="timeline">
+        <div class="tag">Section · Pro</div>
+        <h2>Timeline <span class="pro">PRO</span></h2>
+        <figure><img src="images/shot-4.jpg" alt="The Timeline with clips, a viewer and an inspector"></figure>
+        <p>Timeline is a small video editor for animatics, demos and edits made from your shots. Open it from Board, or switch to it and it starts with your open tabs.</p>
+        <h3>Building an edit</h3>
+        <ul>
+          <li>Drag media from the pool on the left onto the video track. Stills get a length you can change; videos keep their trim.</li>
+          <li>Drop audio files onto the timeline to add music, with a volume per clip.</li>
+          <li>Tools: Select <kbd>V</kbd>, Blade <kbd>B</kbd> and Hand <kbd>H</kbd>. Split at the playhead with <kbd>S</kbd> or <kbd>⌘K</kbd>.</li>
+          <li>Copy, paste and duplicate clips with <kbd>⌘C</kbd>, <kbd>⌘V</kbd> and <kbd>⌘D</kbd>. <kbd>Delete</kbd> removes the selection.</li>
+        </ul>
+        <h3>Transitions, titles and text</h3>
+        <ul>
+          <li>Transitions: Crossfade, Fade, Dip to White, Push, Slide Up, Wipe, Zoom and Blur. Set one for the whole edit or per clip.</li>
+          <li><kbd>T</kbd> adds a title card. <kbd>⇧T</kbd> adds a caption on top of the picture. Text overlays come as Lower Third, Caption, Label or Subtitle.</li>
+          <li>Stills and titles can slowly zoom in or out, or pan left or right.</li>
+        </ul>
+        <h3>Look and animation</h3>
+        <ul>
+          <li>Looks: Vivid, Warm, Cool, Faded, Instant, Mono and Noir, plus exposure, contrast, saturation, temperature, tint, highlights, shadows, sharpen, blur and vignette.</li>
+          <li>Copy a clip's look to others with <kbd>⌥⌘C</kbd> and <kbd>⌥⌘V</kbd>.</li>
+          <li>Keyframe scale, position, rotation, opacity and exposure, with Linear, Ease, Ease In, Ease Out or Hold between keys, and a graph to shape the motion.</li>
+        </ul>
+        <h3>Playback and review</h3>
+        <ul>
+          <li><kbd>Space</kbd> plays. <kbd>J</kbd> <kbd>K</kbd> <kbd>L</kbd> play backwards, stop and play forwards; press again to go faster.</li>
+          <li><kbd>↑</kbd> <kbd>↓</kbd> jump between cuts. <kbd>Home</kbd> and <kbd>End</kbd> go to the start and end.</li>
+          <li><kbd>M</kbd> adds a marker. <kbd>I</kbd> and <kbd>O</kbd> set a range; <kbd>X</kbd> clears it. <kbd>N</kbd> turns snapping on or off.</li>
+        </ul>
+        <h3>Exporting</h3>
+        <p>Export the whole edit, or just the In to Out range, as GIF, MP4 or MOV. You can burn in a timecode or frame number in a corner of your choice, which is handy for reviews.</p>
+      </section>
+
+      <section id="reference">
+        <div class="tag">Section · Pro</div>
+        <h2>Reference <span class="pro">PRO</span></h2>
+        <figure><img src="images/shot-5.jpg" alt="A reference board with images"></figure>
+        <p>Reference is a free-form board for inspiration. Drop images in, then move and resize them however you like. You can also send shots to it from any tab.</p>
+        <h3>Reference mode</h3>
+        <p><kbd>⌥⌘R</kbd> turns the board into a floating window that stays above every app, so your references are always in view while you draw, design or edit. Set its opacity, and turn on <strong>Let Clicks Pass Through</strong> to work on the app underneath it. Clicking Feedback's Dock icon turns click-through off again.</p>
+        <h3>Exporting</h3>
+        <p>Export the board as one image: as arranged, as a tidy grid or as a single row, in a light, dark or transparent look, with a title and margin, at 2K to 8K.</p>
+      </section>
+
+      <section id="colors">
+        <div class="tag">Section · Pro</div>
+        <h2>Colors <span class="pro">PRO</span></h2>
+        <figure><img src="images/shot-6.jpg" alt="Colors with a five-color palette"></figure>
+        <p>Colors builds palettes from your screen, your images or from scratch.</p>
+        <ul>
+          <li><kbd>Space</kbd> generates a new palette. Choose the harmony: Auto, Analogous, Monochrome, Complementary, Split Complementary, Triadic or Square.</li>
+          <li>Lock colors you like and they stay when you generate again.</li>
+          <li>Pick any color on screen with <kbd>⌥⇧C</kbd> from any app (it also copies the hex code), or <kbd>P</kbd> inside Colors.</li>
+          <li>Pull a palette from an image by dropping it on Colors, or with <strong>Send To › Colors</strong> on a tab.</li>
+          <li>Each color shows its name, HEX, RGB, HSL, OKLCH and CMYK, plus a contrast rating for text.</li>
+          <li><kbd>←</kbd> <kbd>→</kbd> undo and redo, <kbd>C</kbd> copies the hex codes and <kbd>S</kbd> saves the palette to your library.</li>
+        </ul>
+        <h3>Views</h3>
+        <p><strong>Swatches</strong> (your palette), <strong>Steps</strong> (even steps between colors), <strong>Gradient</strong> (a smooth blend sampled into colors) and <strong>Scales</strong> (every color as a 50–950 scale, like a design system).</p>
+        <h3>Exporting</h3>
+        <ul>
+          <li>Images: strips, cards, dots, a color sheet, a gradient, a poster and a scale grid.</li>
+          <li>Code: HEX list, CSS variables, Sass, Tailwind config, JSON, design tokens (Figma, Tokens Studio) and a SwiftUI Color extension.</li>
+          <li>Swatch files: SVG, Adobe .ase (Photoshop, Illustrator, InDesign, Affinity) and .gpl (GIMP, Krita, Inkscape, Aseprite).</li>
+        </ul>
+      </section>
+
+      <section id="projects">
+        <div class="tag">More</div>
+        <h2>Projects &amp; tabs</h2>
+        <ul>
+          <li>Each screenshot, recording or file opens in its own tab. Drag tabs to reorder them. <kbd>⇧⌘]</kbd> and <kbd>⇧⌘[</kbd> move between them, and <kbd>⌘W</kbd> closes one.</li>
+          <li>Closing a tab also removes its clips from the Timeline.</li>
+          <li><strong>Send To</strong> on a tab moves it to the Timeline, Reference or Colors.</li>
+          <li>Save everything (tabs, marks, Board, Timeline and Reference) as one project file with <kbd>⌘S</kbd>, and open it again later with <kbd>⌘O</kbd>. Quick captures never ask you to save.</li>
+        </ul>
+      </section>
+
+      <section id="settings">
+        <div class="tag">More</div>
+        <h2>Settings</h2>
+        <ul>
+          <li><strong>General</strong>: show in menu bar, open at login, where files are saved, and copy after saving.</li>
+          <li><strong>Capture</strong>: what happens after a capture, and how long the corner preview stays.</li>
+          <li><strong>Shortcuts</strong>: change the three global shortcuts, or reset them.</li>
+          <li><strong>Privacy</strong>: the permissions Feedback uses.</li>
+          <li><strong>Pro</strong>: your trial or Pro status, and Restore Purchases.</li>
+        </ul>
+      </section>
+
+      <section id="pro">
+        <div class="tag">More</div>
+        <h2>Free and Pro</h2>
+        <p><strong>Free:</strong> screenshots, screen recording, video to GIF and MP4 (with a small watermark on GIFs and videos), the Finder action, the red pen, free cropping and Original size.</p>
+        <p><strong>Feedback Pro</strong> is a one-time purchase that adds arrows, shapes, text, every color and line size, trimming, fixed crop shapes, Board, Timeline, Reference, Colors, and exports without the watermark. No subscription.</p>
+        <p>The <strong>7-day trial</strong> unlocks everything for free and ends by itself. If you've bought Pro before, use <strong>Settings › Pro › Restore</strong> on a new Mac.</p>
+      </section>
+
+      <section id="shortcuts">
+        <div class="tag">More</div>
+        <h2>Keyboard shortcuts</h2>
+        <h3>Anywhere on your Mac</h3>
+        <table>
+          <tr><td><kbd>⌥⇧S</kbd></td><td>Capture a screenshot</td></tr>
+          <tr><td><kbd>⌥⇧D</kbd></td><td>Start or stop a screen recording</td></tr>
+          <tr><td><kbd>⌥⇧C</kbd></td><td>Pick a color from the screen</td></tr>
+        </table>
+        <h3>In the app</h3>
+        <table>
+          <tr><td><kbd>⌥⌘1</kbd>–<kbd>⌥⌘5</kbd></td><td>Review, Board, Timeline, Reference, Colors</td></tr>
+          <tr><td><kbd>⌥⌘R</kbd></td><td>Reference mode</td></tr>
+          <tr><td><kbd>⌥⌘0</kbd></td><td>Show or hide the settings panel</td></tr>
+          <tr><td><kbd>⌘O</kbd> / <kbd>⌘S</kbd></td><td>Open / save a project</td></tr>
+          <tr><td><kbd>⌘E</kbd> or <kbd>Return</kbd></td><td>Export the current tab</td></tr>
+          <tr><td><kbd>⌘9</kbd> / <kbd>⌘0</kbd></td><td>Zoom to fit / actual size</td></tr>
+        </table>
+        <h3>Review</h3>
+        <table>
+          <tr><td><kbd>V</kbd> <kbd>P</kbd> <kbd>A</kbd> <kbd>R</kbd> <kbd>C</kbd> <kbd>T</kbd></td><td>Select, Pen, Arrow, Rectangle, Circle, Text</td></tr>
+          <tr><td><kbd>⌘1</kbd>–<kbd>⌘6</kbd></td><td>Crop shapes</td></tr>
+          <tr><td><kbd>Space</kbd></td><td>Play / pause a video</td></tr>
+          <tr><td><kbd>←</kbd> <kbd>→</kbd></td><td>Step a frame (<kbd>⇧</kbd> for ten)</td></tr>
+          <tr><td><kbd>I</kbd> / <kbd>O</kbd></td><td>Trim start / end at the playhead</td></tr>
+          <tr><td><kbd>S</kbd></td><td>Snapshot the frame into a new tab</td></tr>
+          <tr><td><kbd>Q</kbd></td><td>Preview export quality</td></tr>
+        </table>
+        <h3>Timeline</h3>
+        <table>
+          <tr><td><kbd>Space</kbd>, <kbd>J</kbd> <kbd>K</kbd> <kbd>L</kbd></td><td>Play, and shuttle back / stop / forward</td></tr>
+          <tr><td><kbd>V</kbd> <kbd>B</kbd> <kbd>H</kbd></td><td>Select, Blade, Hand</td></tr>
+          <tr><td><kbd>S</kbd> or <kbd>⌘K</kbd></td><td>Split at the playhead</td></tr>
+          <tr><td><kbd>T</kbd> / <kbd>⇧T</kbd></td><td>Title card / caption</td></tr>
+          <tr><td><kbd>M</kbd></td><td>Add a marker</td></tr>
+          <tr><td><kbd>I</kbd> <kbd>O</kbd> <kbd>X</kbd></td><td>Set In, set Out, clear the range</td></tr>
+          <tr><td><kbd>↑</kbd> <kbd>↓</kbd></td><td>Previous / next cut</td></tr>
+          <tr><td><kbd>N</kbd></td><td>Snapping on / off</td></tr>
+          <tr><td><kbd>⌘C</kbd> <kbd>⌘V</kbd> <kbd>⌘D</kbd></td><td>Copy, paste, duplicate</td></tr>
+          <tr><td><kbd>⌥⌘C</kbd> / <kbd>⌥⌘V</kbd></td><td>Copy / paste a clip's look</td></tr>
+        </table>
+        <h3>Colors</h3>
+        <table>
+          <tr><td><kbd>Space</kbd></td><td>Generate a palette</td></tr>
+          <tr><td><kbd>←</kbd> <kbd>→</kbd></td><td>Undo / redo</td></tr>
+          <tr><td><kbd>P</kbd></td><td>Pick a color from the screen</td></tr>
+          <tr><td><kbd>C</kbd></td><td>Copy the hex codes</td></tr>
+          <tr><td><kbd>S</kbd></td><td>Save to the library</td></tr>
+        </table>
+      </section>
+
+      <p class="muted">Something missing or unclear? Email <a href="mailto:feedback.contact@icloud.com?subject=Feedback%20guide">feedback.contact@icloud.com</a>.</p>
+    </article>
+  </div>
+
+  <footer>
+    <span>© 2026 Ali Sahba</span>
+    <span><a href="./">Home</a> · <a href="mailto:feedback.contact@icloud.com">Contact</a> · <a href="./#privacy">Privacy</a></span>
+  </footer>
+
+</div>
+</body>
+</html>
