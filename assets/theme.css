@@ -50,7 +50,8 @@ html[data-theme="light"] .theme-toggle .moon { display: none; }
 html.theme-anim, html.theme-anim * { transition: background-color .3s ease, color .3s ease, border-color .3s ease !important; }
 
 /* One top bar for every page, identical down to the pixel, so nothing moves between pages. */
-html { scrollbar-gutter: stable; }
+/* Every page keeps its scroll track, short or long, so the width never changes between pages (works in Safari too). */
+html { overflow-y: scroll; scrollbar-gutter: stable; }
 header.top { position: sticky; top: 0; z-index: 10; }
 header.top > div { max-width: 1120px; margin: 0 auto; padding: 0 24px; height: 64px;
                    display: flex; justify-content: space-between; align-items: center; }
