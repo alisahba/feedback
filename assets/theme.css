@@ -73,3 +73,15 @@ header.top .theme-toggle { margin-left: 18px; }
 @media (max-width: 520px) {
   header.top nav .cta { display: none; }   /* the menu has Download */
 }
+
+/* Moving between pages: the top bar stays put while the page underneath fades over,
+   instead of the whole window blanking and redrawing. (Safari 18.2+, Chrome 126+;
+   other browsers simply load the page as before.) */
+@view-transition { navigation: auto; }
+header.top { view-transition-name: site-header; }
+::view-transition-group(site-header) { animation: none; }
+::view-transition-old(site-header), ::view-transition-new(site-header) { animation-duration: .15s; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .2s; }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
