@@ -3,214 +3,410 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Feedback for Mac</title>
-<meta name="description" content="Feedback is a small, fast Mac app to capture, mark up and share what's on your screen: screenshots, screen recordings, GIFs, storyboards, references and colors.">
-<link rel="icon" href="images/favicon.png">
+<title>Feedback – Screenshot, Markup &amp; GIF Maker for Mac</title>
+<meta name="description" content="Feedback is a fast, native Mac app to take screenshots, mark them up with arrows and text, record your screen, convert video to GIF, and build storyboards, animatics, reference boards and color palettes.">
+<link rel="canonical" href="https://feedbackformac.app/">
+<meta name="theme-color" content="#0d0e10">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Feedback for Mac">
+<meta property="og:title" content="Feedback – Screenshot, Markup & GIF Maker for Mac">
+<meta property="og:description" content="Capture, mark up and share what's on your screen. Screenshots, screen recording, video to GIF, storyboards, animatics, reference boards and color palettes in one small Mac app.">
+<meta property="og:url" content="https://feedbackformac.app/">
+<meta property="og:image" content="https://feedbackformac.app/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Feedback – Screenshot, Markup & GIF Maker for Mac">
+<meta name="twitter:description" content="Capture, mark up and share what's on your screen. One small, fast Mac app.">
+<meta name="twitter:image" content="https://feedbackformac.app/images/og-image.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Feedback",
+      "alternateName": "Feedback - Review & Comment",
+      "url": "https://feedbackformac.app/",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "macOS 15 or later",
+      "description": "A native Mac app to take screenshots, mark them up, record the screen, convert video to GIF, and build storyboards, animatics, reference boards and color palettes.",
+      "image": "https://feedbackformac.app/images/og-image.jpg",
+      "screenshot": [
+        "https://feedbackformac.app/images/shot-1.jpg",
+        "https://feedbackformac.app/images/shot-2.jpg",
+        "https://feedbackformac.app/images/shot-3.jpg",
+        "https://feedbackformac.app/images/shot-4.jpg",
+        "https://feedbackformac.app/images/shot-5.jpg",
+        "https://feedbackformac.app/images/shot-6.jpg"
+      ],
+      "downloadUrl": "https://apps.apple.com/app/id6832037599",
+      "installUrl": "https://apps.apple.com/app/id6832037599",
+      "featureList": [
+        "Screenshots with arrows, boxes, circles, pen and text",
+        "Screen recording",
+        "Video to GIF, MP4 or ProRes with trimming, cropping and a live file size estimate",
+        "Convert to GIF from the Finder right-click menu",
+        "Storyboards from screenshots",
+        "Timeline editor for animatics with transitions, titles, music and keyframes",
+        "Floating reference boards",
+        "Color palette generator with CSS, Tailwind, SwiftUI and Adobe exports"
+      ],
+      "offers": [
+        { "@type": "Offer", "name": "Feedback", "price": "0", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "Feedback Pro (one-time purchase)", "price": "29.99", "priceCurrency": "USD" }
+      ],
+      "author": { "@type": "Person", "name": "Ali Sahba" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is Feedback free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Screenshots, screen recording, video to GIF and the Finder action are free, with a small watermark on GIFs and videos. Feedback Pro is a one-time purchase that unlocks everything else and removes the watermark. There's a free 7-day trial." } },
+        { "@type": "Question", "name": "How do I convert a video to a GIF on a Mac?",
+          "acceptedAnswer": { "@type": "Answer", "text": "With Feedback installed, right-click a video in Finder and choose Quick Actions › Convert to GIF. Or open the video in Feedback to trim, crop and set the size before exporting." } },
+        { "@type": "Question", "name": "Screen recording doesn't work. What do I do?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Open System Settings › Privacy & Security › Screen & System Audio Recording and turn on Feedback. If it's already on, turn it off and on again, then reopen the app." } },
+        { "@type": "Question", "name": "How do I get Pro on another Mac?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sign in with the same Apple Account and choose Settings › Pro › Restore." } },
+        { "@type": "Question", "name": "Can I change the keyboard shortcuts?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, in Settings › Shortcuts. The defaults are ⌥⇧S for a screenshot, ⌥⇧D to record and ⌥⇧C to pick a color." } },
+        { "@type": "Question", "name": "Does Feedback collect any data?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. There are no accounts, analytics or tracking, and your captures stay on your Mac unless you share them." } }
+      ]
+    }
+  ]
+}
+</script>
+
 <style>
   :root {
     --bg: #0d0e10;
-    --panel: #17181b;
-    --line: #26282c;
-    --text: #f2f3f5;
-    --muted: #9a9ca3;
+    --panel: #151619;
+    --line: #25272b;
+    --text: #f3f4f6;
+    --muted: #9b9da4;
     --green: #20e261;
+    --green-ink: #06130a;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
   body {
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
   a { color: var(--green); text-decoration: none; }
   a:hover { text-decoration: underline; }
-  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  img { max-width: 100%; height: auto; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
-  nav { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
-  nav .brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 600; }
-  nav .brand img { width: 30px; height: 30px; }
-  nav .links a { color: var(--muted); margin-left: 22px; font-size: 15px; }
+  .top { position: sticky; top: 0; z-index: 10; background: rgba(13, 14, 16, .78); backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px); }
+  .top .wrap { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+  .brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 650; letter-spacing: -.01em; }
+  .brand:hover { text-decoration: none; }
+  .brand img { width: 28px; height: 28px; }
+  .top nav a { color: var(--muted); margin-left: 24px; font-size: 15px; }
+  .top nav a:hover { color: var(--text); text-decoration: none; }
+  .top nav .cta { color: var(--green-ink); background: var(--green); padding: 7px 14px; border-radius: 9px; font-weight: 600; }
+  .top nav .cta:hover { color: var(--green-ink); filter: brightness(1.06); }
 
-  header { text-align: center; padding: 56px 0 40px; }
-  header img.icon { width: 168px; height: 168px; filter: drop-shadow(0 18px 40px rgba(32, 226, 97, .18)); }
-  h1 { font-size: clamp(40px, 7vw, 64px); line-height: 1.05; letter-spacing: -.02em; margin: 18px 0 12px; }
-  .lead { color: var(--muted); font-size: clamp(18px, 2.4vw, 22px); max-width: 640px; margin: 0 auto 30px; }
-  .button {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: var(--green); color: #07130b; font-weight: 600;
-    padding: 14px 26px; border-radius: 12px; font-size: 17px;
+  .hero { text-align: center; padding: 72px 0 0; background: linear-gradient(180deg, rgba(32, 226, 97, .07), rgba(32, 226, 97, 0) 420px); }
+  .hero .icon { width: 148px; height: 148px; filter: drop-shadow(0 16px 36px rgba(32, 226, 97, .2)); }
+  .eyebrow { display: inline-block; color: var(--green); font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+  .hero .eyebrow { margin-top: 22px; }
+  h1 { font-size: clamp(40px, 6.6vw, 68px); line-height: 1.04; letter-spacing: -.03em; margin: 12px auto 18px; max-width: 900px; }
+  .lead { color: var(--muted); font-size: clamp(18px, 2.2vw, 21px); max-width: 660px; margin: 0 auto 32px; }
+  .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .button { display: inline-flex; align-items: center; gap: 10px; background: var(--green); color: var(--green-ink); font-weight: 650; padding: 14px 24px; border-radius: 12px; font-size: 16.5px; }
+  .button:hover { text-decoration: none; filter: brightness(1.06); }
+  .button svg { width: 18px; height: 18px; }
+  .button.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+  .button.ghost:hover { background: var(--panel); filter: none; }
+  .fine { color: var(--muted); font-size: 14px; margin-top: 16px; }
+  .hero-shot { margin: 48px auto 0; max-width: 1080px; }
+  .hero-shot img { display: block; width: 100%; }
+
+  .strengths { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; margin: 56px 0 0; text-align: left; }
+  .strengths div { background: var(--panel); padding: 22px; }
+  .strengths b { display: block; font-size: 16px; margin-bottom: 4px; }
+  .strengths span { color: var(--muted); font-size: 14.5px; }
+
+  section { padding: 96px 0 0; }
+  .section-head { text-align: center; max-width: 720px; margin: 0 auto 48px; }
+  h2 { font-size: clamp(30px, 4.2vw, 42px); letter-spacing: -.025em; line-height: 1.1; margin: 8px 0 12px; }
+  .section-head p { color: var(--muted); margin: 0; font-size: 18px; }
+
+  .feature { display: grid; grid-template-columns: 5fr 7fr; gap: 56px; align-items: center; padding: 40px 0; }
+  .feature.flip { grid-template-columns: 7fr 5fr; }
+  .feature.flip .copy { order: 2; }
+  .feature .tag { color: var(--green); font-size: 12.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+  .feature h3 { font-size: 28px; line-height: 1.15; letter-spacing: -.015em; margin: 8px 0 12px; }
+  .feature p { color: var(--muted); margin: 0 0 10px; }
+  .feature ul { margin: 12px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 15.5px; }
+  .feature li { padding-left: 22px; position: relative; margin: 6px 0; }
+  .feature li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 8px; height: 8px; border-radius: 50%; background: var(--green); opacity: .8; }
+  .pro { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .08em; color: var(--green-ink); background: var(--green); border-radius: 5px; padding: 1px 6px; margin-left: 8px; vertical-align: 2px; }
+  .feature img { display: block; width: 100%; }
+  .guide-link { text-align: center; padding: 24px 0 0; }
+
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .plan { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 28px; }
+  .plan.featured { background: linear-gradient(180deg, rgba(32, 226, 97, .09), rgba(32, 226, 97, .02)), var(--panel); border-color: rgba(32, 226, 97, .45); }
+  .plan h3 { margin: 0; font-size: 18px; }
+  .plan .price { font-size: 40px; font-weight: 700; letter-spacing: -.02em; margin: 6px 0 2px; }
+  .plan .per { color: var(--muted); font-size: 14px; margin-bottom: 16px; }
+  .plan ul { list-style: none; padding: 0; margin: 0; color: var(--muted); font-size: 15px; }
+  .plan li { padding: 7px 0 7px 26px; position: relative; border-top: 1px solid var(--line); }
+  .plan li::before { content: "✓"; position: absolute; left: 2px; color: var(--green); font-weight: 700; }
+
+  .faq { max-width: 800px; margin: 0 auto; }
+  details { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 0 20px; margin-bottom: 10px; }
+  summary { cursor: pointer; list-style: none; padding: 18px 28px 18px 0; font-weight: 600; position: relative; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; position: absolute; right: 0; top: 14px; font-size: 22px; color: var(--muted); font-weight: 400; }
+  details[open] summary::after { content: "–"; }
+  details p { color: var(--muted); margin: 0 0 18px; }
+
+  .contact { text-align: center; background: var(--panel); border: 1px solid var(--line); border-radius: 20px; padding: 48px 24px; margin-top: 96px; }
+  .contact h2 { margin-top: 0; }
+  .contact p { color: var(--muted); margin: 0 auto 24px; max-width: 520px; }
+
+  footer { margin-top: 72px; padding: 28px 0 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  footer a { color: var(--muted); margin-left: 18px; }
+  footer a:first-child { margin-left: 0; }
+
+  @media (max-width: 860px) {
+    .top nav a:not(.cta) { display: none; }
+    .strengths { grid-template-columns: 1fr 1fr; }
+    .feature, .feature.flip { grid-template-columns: 1fr; gap: 22px; padding: 28px 0; }
+    .feature.flip .copy { order: 0; }
+    .plans { grid-template-columns: 1fr; }
+    section { padding-top: 72px; }
   }
-  .button:hover { text-decoration: none; filter: brightness(1.05); }
-  .small { color: var(--muted); font-size: 14px; margin-top: 14px; }
-  .guide-link { text-align: center; padding: 40px 0 10px; border-top: 1px solid var(--line); }
-
-  .hero-shot { margin: 30px auto 0; max-width: 1040px; }
-  .hero-shot img { width: 100%; display: block; }
-
-  section { padding: 72px 0 0; }
-  h2 { font-size: 32px; letter-spacing: -.015em; margin: 0 0 10px; }
-  .section-lead { color: var(--muted); margin: 0 0 32px; max-width: 640px; }
-
-  .feature { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: center; padding: 34px 0; border-top: 1px solid var(--line); }
-  .feature .tag { color: var(--green); font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
-  .feature h3 { font-size: 26px; margin: 6px 0 8px; letter-spacing: -.01em; }
-  .feature p { color: var(--muted); margin: 0; }
-  .feature img { width: 100%; display: block; }
-
-  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
-  .card h3 { margin: 0 0 6px; font-size: 19px; }
-  .card p { margin: 0; color: var(--muted); font-size: 15.5px; }
-  .card .price { font-size: 30px; font-weight: 700; margin: 4px 0 8px; }
-  .card.pro { border-color: rgba(32, 226, 97, .45); }
-
-  .faq dt { font-weight: 600; margin-top: 22px; }
-  .faq dd { margin: 4px 0 0; color: var(--muted); }
-
-  footer { margin-top: 80px; padding: 30px 0 50px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-
-  @media (max-width: 760px) {
-    .feature { grid-template-columns: 1fr; gap: 18px; }
-    .grid { grid-template-columns: 1fr; }
-    nav .links a { margin-left: 14px; }
+  @media (max-width: 520px) {
+    .strengths { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <nav>
-    <a class="brand" href="#"><img src="images/icon.png" alt="">Feedback</a>
-    <div class="links">
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="images/favicon-32.png" alt="" width="28" height="28">Feedback</a>
+    <nav aria-label="Main">
       <a href="#features">Features</a>
       <a href="guide.html">Guide</a>
       <a href="#pricing">Pricing</a>
-      <a href="#support">Support</a>
-    </div>
-  </nav>
+      <a href="#faq">FAQ</a>
+      <a class="cta" href="https://apps.apple.com/app/id6832037599">Download</a>
+    </nav>
+  </div>
+</header>
 
-  <header>
-    <img class="icon" src="images/icon.png" alt="Feedback app icon">
-    <h1>Feedback</h1>
-    <p class="lead">Capture, mark up and share what's on your screen. A small, native Mac app that opens almost instantly.</p>
-    <a class="button" href="https://apps.apple.com/app/id6832037599">Download on the Mac App Store</a>
-    <p class="small">Free to download · Requires macOS 15 or later</p>
-    <div class="hero-shot"><img src="images/shot-1.jpg" alt="A screenshot marked up with an arrow, a circle and a note in Feedback"></div>
-  </header>
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <img class="icon" src="images/icon.png" alt="Feedback app icon" width="148" height="148">
+      <div class="eyebrow">For Mac</div>
+      <h1>Capture, mark up and share what's on your screen.</h1>
+      <p class="lead">Feedback is a small, native Mac app for screenshots, screen recordings and GIFs, with storyboards, animatics, reference boards and color palettes built in. It opens almost instantly.</p>
+      <div class="actions">
+        <a class="button" href="https://apps.apple.com/app/id6832037599">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.62-1.7-3.19-1.72-1.36-.14-2.65.8-3.34.8-.69 0-1.75-.78-2.88-.76-1.48.02-2.85.86-3.61 2.19-1.54 2.67-.39 6.62 1.11 8.79.73 1.06 1.6 2.25 2.75 2.2 1.1-.04 1.52-.71 2.85-.71s1.71.71 2.88.69c1.19-.02 1.94-1.08 2.67-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.33-3.55zM14.17 6.13c.61-.74 1.02-1.76.91-2.78-.88.04-1.94.59-2.57 1.32-.56.65-1.06 1.7-.93 2.7.98.08 1.98-.5 2.59-1.24z"/></svg>
+          Download on the Mac App Store
+        </a>
+        <a class="button ghost" href="guide.html">Read the guide</a>
+      </div>
+      <p class="fine">Free to download · macOS 15 or later · No account needed</p>
+      <div class="hero-shot"><img src="images/shot-1.jpg" alt="A screenshot in Feedback marked up with a red circle, an arrow and a note" width="1800" height="1196" fetchpriority="high"></div>
+
+      <div class="strengths">
+        <div><b>Fast and native</b><span>Built for macOS. Small, and opens almost instantly.</span></div>
+        <div><b>One shortcut away</b><span>Lives in the menu bar. ⌥⇧S captures from any app.</span></div>
+        <div><b>Private</b><span>No account, no tracking. Your files stay on your Mac.</span></div>
+        <div><b>Pay once</b><span>Free to use. Pro is one purchase, no subscription.</span></div>
+      </div>
+    </div>
+  </div>
 
   <section id="features">
-    <h2>What it does</h2>
-    <p class="section-lead">Everything you need to show someone what you mean, in one place.</p>
-
-    <div class="feature">
-      <div>
-        <div class="tag">Review</div>
-        <h3>Screenshots with notes</h3>
-        <p>Capture an area of the screen with a shortcut, then add arrows, boxes, circles, pen and text. Save it, or copy it straight into Slack, Mail or Figma.</p>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Features</div>
+        <h2>Everything for showing someone what you mean</h2>
+        <p>From a quick annotated screenshot to a full storyboard or animatic, without switching apps.</p>
       </div>
-      <img src="images/shot-1.jpg" alt="Review section with annotations">
-    </div>
 
-    <div class="feature">
-      <div>
-        <div class="tag">Video to GIF</div>
-        <h3>GIFs the size you need</h3>
-        <p>Record your screen or open any video. Trim it, crop it to 1:1, 4:5, 16:9 or 9:16, and see the file size before you export as GIF, MP4 or ProRes. You can also right-click a video in Finder and choose Convert to GIF.</p>
+      <div class="feature">
+        <div class="copy">
+          <div class="tag">Screenshots &amp; markup</div>
+          <h3>Annotate screenshots in seconds</h3>
+          <p>Press ⌥⇧S in any app, drag over what you want, and mark it up with arrows, boxes, circles, a pen and text. Save it, or copy it straight into Slack, Mail or Figma.</p>
+          <ul>
+            <li>Corner preview you can drag into any app</li>
+            <li>Free crop, or 1:1, 4:5, 16:9 and 9:16</li>
+            <li>Copy to the clipboard after every export</li>
+          </ul>
+        </div>
+        <img src="images/shot-1.jpg" alt="Annotating a screenshot with an arrow and a circle" width="1800" height="1196" loading="lazy">
       </div>
-      <img src="images/shot-2.jpg" alt="Converting a video to a GIF">
-    </div>
 
-    <div class="feature">
-      <div>
-        <div class="tag">Board</div>
-        <h3>Screenshots become storyboards</h3>
-        <p>Every capture becomes a numbered frame. Reorder them and export the whole board as one image: PNG, JPEG, HEIC or PDF.</p>
+      <div class="feature flip">
+        <div class="copy">
+          <div class="tag">Screen recording &amp; GIFs</div>
+          <h3>Convert video to GIF, at the size you need</h3>
+          <p>Record your screen with ⌥⇧D, or open any video. Trim it, crop it and see the file size before you export as GIF, MP4 or ProRes. MP4 and MOV keep the sound.</p>
+          <ul>
+            <li>Right-click a video in Finder › Convert to GIF</li>
+            <li>Small, Balanced or High quality</li>
+            <li>Set the size, frame rate and speed</li>
+          </ul>
+        </div>
+        <img src="images/shot-2.jpg" alt="Converting a video to a GIF with a live file size estimate" width="1800" height="1196" loading="lazy">
       </div>
-      <img src="images/shot-3.jpg" alt="Board section with storyboard frames">
-    </div>
 
-    <div class="feature">
-      <div>
-        <div class="tag">Timeline</div>
-        <h3>Cut animatics</h3>
-        <p>Line up your shots on a timeline, add transitions, titles and music, and export a video with timecode.</p>
+      <div class="feature">
+        <div class="copy">
+          <div class="tag">Board <span class="pro">PRO</span></div>
+          <h3>Turn screenshots into storyboards</h3>
+          <p>Every capture becomes a numbered frame. Reorder them, hide the ones you don't need, and export the whole board as one image: PNG, JPEG, HEIC or PDF.</p>
+        </div>
+        <img src="images/shot-3.jpg" alt="A storyboard of six sketch frames" width="1800" height="1196" loading="lazy">
       </div>
-      <img src="images/shot-4.jpg" alt="Timeline section">
-    </div>
 
-    <div class="feature">
-      <div>
-        <div class="tag">Reference</div>
-        <h3>Keep references in view</h3>
-        <p>Collect images on a board and float it above any app while you work. Export it as a mood board when you're done.</p>
+      <div class="feature flip">
+        <div class="copy">
+          <div class="tag">Timeline <span class="pro">PRO</span></div>
+          <h3>Cut animatics on a real timeline</h3>
+          <p>Line up shots, add transitions, titles, captions and music, animate with keyframes, and export with a timecode burn-in for reviews.</p>
+        </div>
+        <img src="images/shot-4.jpg" alt="The timeline editor with clips, a viewer and an inspector" width="1800" height="1196" loading="lazy">
       </div>
-      <img src="images/shot-5.jpg" alt="Reference board">
-    </div>
 
-    <div class="feature">
-      <div>
-        <div class="tag">Colors</div>
-        <h3>Palettes from anything</h3>
-        <p>Pick colors from anywhere on screen, build palettes and export them to CSS, Tailwind, SwiftUI or Adobe swatches.</p>
+      <div class="feature">
+        <div class="copy">
+          <div class="tag">Reference <span class="pro">PRO</span></div>
+          <h3>Reference boards that float on top</h3>
+          <p>Collect images on a free-form board, then float it above any app while you draw, design or edit. Set its opacity, or let clicks pass straight through.</p>
+        </div>
+        <img src="images/shot-5.jpg" alt="A reference board of images" width="1800" height="1196" loading="lazy">
       </div>
-      <img src="images/shot-6.jpg" alt="Colors section">
-    </div>
 
-    <div class="guide-link">
-      <a class="button" href="guide.html">Read the full guide</a>
-      <p class="small">Every tool, setting and keyboard shortcut, section by section.</p>
+      <div class="feature flip">
+        <div class="copy">
+          <div class="tag">Colors <span class="pro">PRO</span></div>
+          <h3>A color palette generator for your Mac</h3>
+          <p>Pick colors from anywhere on screen, pull palettes from images or generate new ones, then export to CSS, Tailwind, SwiftUI, design tokens or Adobe swatches.</p>
+        </div>
+        <img src="images/shot-6.jpg" alt="A five-color palette in Feedback" width="1800" height="1196" loading="lazy">
+      </div>
+
+      <div class="guide-link">
+        <a class="button ghost" href="guide.html">See every feature in the guide</a>
+      </div>
     </div>
   </section>
 
   <section id="pricing">
-    <h2>Pricing</h2>
-    <p class="section-lead">Free to use, with one optional purchase. No subscription, no account.</p>
-    <div class="grid">
-      <div class="card">
-        <h3>Free</h3>
-        <div class="price">$0</div>
-        <p>Screenshots, screen recording and GIF conversion, with a red pen to draw on your captures. GIFs and videos carry a small watermark.</p>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Pricing</div>
+        <h2>Free to use. Pay once for Pro.</h2>
+        <p>No subscription and no account. Try every Pro feature free for 7 days.</p>
       </div>
-      <div class="card pro">
-        <h3>Feedback Pro</h3>
-        <div class="price">$29.99</div>
-        <p>A one-time purchase that unlocks everything: all drawing tools and colors, trimming, Board, Timeline, Reference and Colors, and no watermark.</p>
-      </div>
-      <div class="card">
-        <h3>7-day trial</h3>
-        <div class="price">Free</div>
-        <p>Try every Pro feature for 7 days. It ends by itself and never charges you.</p>
+      <div class="plans">
+        <div class="plan">
+          <h3>Free</h3>
+          <div class="price">$0</div>
+          <div class="per">Forever</div>
+          <ul>
+            <li>Screenshots and screen recording</li>
+            <li>Video to GIF and MP4</li>
+            <li>Finder Convert to GIF</li>
+            <li>Red pen and free crop</li>
+            <li>Small watermark on GIFs and videos</li>
+          </ul>
+        </div>
+        <div class="plan featured">
+          <h3>Feedback Pro</h3>
+          <div class="price">$29.99</div>
+          <div class="per">One-time purchase</div>
+          <ul>
+            <li>Arrows, shapes, text, all colors and sizes</li>
+            <li>Trimming and fixed crop shapes</li>
+            <li>Board, Timeline, Reference and Colors</li>
+            <li>No watermark</li>
+            <li>Family Sharing</li>
+          </ul>
+        </div>
+        <div class="plan">
+          <h3>7-day trial</h3>
+          <div class="price">Free</div>
+          <div class="per">Ends by itself</div>
+          <ul>
+            <li>Every Pro feature for 7 days</li>
+            <li>Never charges you</li>
+            <li>Back to the free version afterwards</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="support">
-    <h2>Support</h2>
-    <p class="section-lead">Questions, bugs or ideas? Email <a href="mailto:feedback.contact@icloud.com?subject=Feedback%20app">feedback.contact@icloud.com</a> and I'll get back to you.</p>
-    <dl class="faq">
-      <dt>Screen recording doesn't work.</dt>
-      <dd>Open System Settings › Privacy &amp; Security › Screen &amp; System Audio Recording and turn on Feedback. If it's already on, turn it off and on again, then reopen the app.</dd>
-      <dt>Where is Convert to GIF in Finder?</dt>
-      <dd>Right-click a video, then choose Quick Actions › Convert to GIF.</dd>
-      <dt>How do I get Pro on another Mac?</dt>
-      <dd>Sign in with the same Apple Account and choose Settings › Pro › Restore.</dd>
-      <dt>Can I change the shortcuts?</dt>
-      <dd>Yes, in Settings › Shortcuts. The defaults are ⌥⇧S for a screenshot, ⌥⇧D to record and ⌥⇧C to pick a color.</dd>
-    </dl>
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">FAQ</div>
+        <h2>Questions</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Is Feedback free?</summary>
+          <p>Yes. Screenshots, screen recording, video to GIF and the Finder action are free, with a small watermark on GIFs and videos. Feedback Pro is a one-time purchase that unlocks everything else and removes the watermark. There's a free 7-day trial.</p></details>
+        <details><summary>How do I convert a video to a GIF on a Mac?</summary>
+          <p>With Feedback installed, right-click a video in Finder and choose Quick Actions › Convert to GIF. Or open the video in Feedback to trim, crop and set the size before exporting.</p></details>
+        <details><summary>Screen recording doesn't work. What do I do?</summary>
+          <p>Open System Settings › Privacy &amp; Security › Screen &amp; System Audio Recording and turn on Feedback. If it's already on, turn it off and on again, then reopen the app.</p></details>
+        <details><summary>How do I get Pro on another Mac?</summary>
+          <p>Sign in with the same Apple Account and choose Settings › Pro › Restore.</p></details>
+        <details><summary>Can I change the keyboard shortcuts?</summary>
+          <p>Yes, in Settings › Shortcuts. The defaults are ⌥⇧S for a screenshot, ⌥⇧D to record and ⌥⇧C to pick a color.</p></details>
+        <details><summary>Does Feedback collect any data?</summary>
+          <p>No. There are no accounts, analytics or tracking, and your captures stay on your Mac unless you share them.</p></details>
+      </div>
+
+      <div class="contact" id="support">
+        <h2>Need help?</h2>
+        <p>Questions, bugs or ideas? Email me and I'll get back to you.</p>
+        <a class="button" href="mailto:feedback.contact@icloud.com?subject=Feedback%20app">feedback.contact@icloud.com</a>
+      </div>
+    </div>
   </section>
 
   <section id="privacy">
-    <h2>Privacy</h2>
-    <p class="section-lead">Feedback doesn't collect any data. There are no accounts, no analytics and no tracking. Your captures stay on your Mac unless you choose to share them. Purchases are handled by Apple.</p>
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:0">
+        <div class="eyebrow">Privacy</div>
+        <h2>Privacy policy</h2>
+        <p>Feedback doesn't collect any data. There are no accounts, no analytics and no tracking. Your captures stay on your Mac unless you choose to share them. Purchases are handled by Apple through the App Store.</p>
+      </div>
+    </div>
   </section>
+</main>
 
-  <footer>
+<footer>
+  <div class="wrap">
     <span>© 2026 Ali Sahba</span>
-    <span><a href="guide.html">Guide</a> · <a href="mailto:feedback.contact@icloud.com">Contact</a> · <a href="#privacy">Privacy</a></span>
-  </footer>
+    <span><a href="guide.html">Guide</a><a href="#faq">FAQ</a><a href="mailto:feedback.contact@icloud.com">Contact</a><a href="#privacy">Privacy</a></span>
+  </div>
+</footer>
 
-</div>
 </body>
 </html>
