@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://feedbackformac.app/</loc><lastmod>2026-11-08</lastmod><priority>1.0</priority></url>
-  <url><loc>https://feedbackformac.app/guide.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
+  <url><loc>https://feedbackformac.app/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://feedbackformac.app/guide.html</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://feedbackformac.app/how-to/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://feedbackformac.app/how-to/take-a-screenshot-on-mac.html</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://feedbackformac.app/how-to/annotate-a-screenshot-on-mac.html</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://feedbackformac.app/how-to/screen-record-on-mac.html</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://feedbackformac.app/how-to/convert-video-to-gif-on-mac.html</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://feedbackformac.app/how-to/make-a-storyboard-on-mac.html</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://feedbackformac.app/how-to/reference-board-app-for-mac.html</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://feedbackformac.app/how-to/color-palette-from-image-on-mac.html</loc><lastmod>2026-11-08</lastmod></url>
 </urlset>
