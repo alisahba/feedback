@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('theme')==='light'?'light':'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script>
+<link rel="stylesheet" href="/assets/theme.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Feedback Guide – Screenshots, GIFs, Storyboards &amp; More on Mac</title>
 <meta name="description" content="Everything Feedback for Mac can do: screenshots, markup, screen recording, GIFs, storyboards, the timeline, reference boards and colors.">
@@ -453,5 +455,6 @@
   document.querySelectorAll('article section[id]').forEach(s => spy.observe(s));
 </script>
 <script src="/assets/lightbox.js" defer></script>
+<script src="/assets/theme.js" defer></script>
 </body>
 </html>

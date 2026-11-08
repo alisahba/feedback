@@ -1,0 +1,50 @@
+/* Light theme, from the light-mode app icon: white, black and Feedback green.
+   Dark is the default; html[data-theme="light"] switches. */
+
+html[data-theme="light"] {
+  --bg: #ffffff;
+  --panel: #f4f5f2;
+  --panel-2: #eef0ec;
+  --line: #e2e5df;
+  --text: #0b0c0d;
+  --muted: #585c63;
+  --green: #0c8f3d;          /* green for text and small marks, readable on white */
+  --green-ink: #06130a;
+  color-scheme: light;
+}
+html[data-theme="dark"] { color-scheme: dark; }
+
+/* Buttons and badges keep the icon's bright green with black text. */
+html[data-theme="light"] .button:not(.ghost),
+html[data-theme="light"] .top nav .cta,
+html[data-theme="light"] .pro { background: #20e261; color: #06130a; }
+
+html[data-theme="light"] .top { background: rgba(255, 255, 255, .82); border-bottom: 1px solid rgba(0, 0, 0, .06); }
+html[data-theme="light"] .hero { background: linear-gradient(180deg, rgba(32, 226, 97, .16), rgba(32, 226, 97, 0) 440px); }
+html[data-theme="light"] .hero .icon { filter: drop-shadow(0 16px 34px rgba(12, 143, 61, .22)); }
+html[data-theme="light"] figure { background: #ffffff; }
+html[data-theme="light"] .plan.featured { background: linear-gradient(180deg, rgba(32, 226, 97, .14), rgba(32, 226, 97, .03)), var(--panel); border-color: rgba(12, 143, 61, .45); }
+html[data-theme="light"] .cta-box { background: linear-gradient(180deg, rgba(32, 226, 97, .14), rgba(32, 226, 97, .03)), var(--panel); border-color: rgba(12, 143, 61, .4); }
+html[data-theme="light"] kbd { background: #ffffff; }
+
+/* Enlarged images */
+html[data-theme="light"] .lb.on { background: rgba(250, 251, 249, .9); }
+html[data-theme="light"] .lb img { box-shadow: 0 30px 80px rgba(0, 0, 0, .22); }
+html[data-theme="light"] .lb .hint { color: rgba(0, 0, 0, .5); }
+
+/* The switch */
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; margin-left: 18px; padding: 0;
+  border-radius: 9px; border: 1px solid var(--line); background: transparent;
+  color: var(--muted); cursor: pointer; vertical-align: middle;
+  transition: color .2s, background .2s;
+}
+.theme-toggle:hover { color: var(--text); background: var(--panel); }
+.theme-toggle svg { width: 17px; height: 17px; }
+.theme-toggle .sun { display: none; }
+html[data-theme="light"] .theme-toggle .sun { display: block; }
+html[data-theme="light"] .theme-toggle .moon { display: none; }
+
+/* Smooth switch between themes, but not on first paint. */
+html.theme-anim, html.theme-anim * { transition: background-color .3s ease, color .3s ease, border-color .3s ease !important; }
