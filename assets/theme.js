@@ -2,16 +2,20 @@
 (() => {
   const root = document.documentElement;
   // Images that have a light version: images/x.jpg → images/x-light.jpg
-  const SWAP = /images\/(shot-\d|finder|menubar|board-export|reference-export|icon|favicon-32)\.(jpg|png)$/;
+  const SWAP = /images\/(shot-\d|finder|menubar|board-export|reference-export|icon|favicon-32)\.(jpg|png|avif)$/;
+
+  function swap(el, attr, theme) {
+    const dark = el.dataset.dark || el.getAttribute(attr);
+    if (!SWAP.test(dark)) return;
+    el.dataset.dark = dark;
+    const want = theme === 'light' ? dark.replace(/\.(jpg|png|avif)$/, '-light.$1') : dark;
+    if (el.getAttribute(attr) !== want) el.setAttribute(attr, want);
+  }
 
   function applyImages(theme) {
-    document.querySelectorAll('img').forEach(img => {
-      const dark = img.dataset.darkSrc || img.getAttribute('src');
-      if (!SWAP.test(dark)) return;
-      img.dataset.darkSrc = dark;
-      const want = theme === 'light' ? dark.replace(/\.(jpg|png)$/, '-light.$1') : dark;
-      if (img.getAttribute('src') !== want) img.setAttribute('src', want);
-    });
+    // The AVIF <source> first, so the browser never fetches the wrong one.
+    document.querySelectorAll('picture source').forEach(s => swap(s, 'srcset', theme));
+    document.querySelectorAll('img').forEach(img => swap(img, 'src', theme));
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', theme === 'light' ? '#ffffff' : '#0d0e10');
   }

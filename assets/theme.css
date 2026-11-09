@@ -32,6 +32,9 @@ html[data-theme="light"] .lb.on { background: rgba(250, 251, 249, .9); }
 html[data-theme="light"] .lb img { box-shadow: 0 30px 80px rgba(0, 0, 0, .22); }
 html[data-theme="light"] .lb .hint { color: rgba(0, 0, 0, .5); }
 
+/* <picture> wrappers (AVIF with a JPEG fallback) lay out as if the image were there on its own. */
+picture { display: contents; }
+
 /* The switch */
 .theme-toggle {
   display: inline-flex; align-items: center; justify-content: center;
